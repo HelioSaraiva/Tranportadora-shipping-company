@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportteste" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6df0d1d9-98c2-4a12-a1d5-050530457b9f">
+	<property name="template.type" value="columnar"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select *from agenda]]>
+	</queryString>
+	<field name="agenda_codcli" class="java.lang.Integer"/>
+	<field name="agenda_turno" class="java.lang.String"/>
+	<field name="agenda_codfunc" class="java.lang.Integer"/>
+	<field name="agenda_data" class="java.sql.Date"/>
+	<field name="agenda_descricao" class="java.lang.String"/>
+	<field name="agenda_status" class="java.lang.String"/>
+	<group name="agenda_codcli">
+		<groupExpression><![CDATA[$F{agenda_codcli}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#9DB1B8" uuid="a3985fd4-aaf6-40b9-9d8e-4a742e64849d"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="1" width="479" height="23" forecolor="#FFFFFF" uuid="5d5ab24d-f61c-4cfe-9250-468c4ba0b518"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{agenda_codcli}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="agenda_codfunc">
+		<groupExpression><![CDATA[$F{agenda_codfunc}]]></groupExpression>
+		<groupHeader>
+			<band height="24">
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="4" width="299" height="20" forecolor="#000000" uuid="04a9fb45-acfc-4a04-8ae1-77d2fbc1b308"/>
+					<textElement>
+						<font fontName="Times New Roman" size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{agenda_codfunc}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="agenda_data">
+		<groupExpression><![CDATA[$F{agenda_data}]]></groupExpression>
+	</group>
+	<group name="agenda_turno">
+		<groupExpression><![CDATA[$F{agenda_turno}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="2" y="0" width="118" height="132" uuid="c1918db7-f812-45f4-b60e-37de454a43b3"/>
+				<imageExpression><![CDATA["tree1.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="120" y="10" width="435" height="93" uuid="69e74ab3-21fd-4237-b837-dca46b5c2263"/>
+				<textElement>
+					<font size="80" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tree Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="336" y="103" width="217" height="29" uuid="74bf1006-5ed7-4aac-94fc-05d2ce23c7ad"/>
+				<textElement>
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tree SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="91" splitType="Stretch">
+			<image>
+				<reportElement x="2" y="0" width="56" height="80" uuid="3bbf704d-cd26-4f65-9184-eb39c2ce3dbc"/>
+				<imageExpression><![CDATA["tree2.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="90" width="551" height="1" uuid="9808646e-e7a1-4d4c-87e3-dbcff3fb57f3"/>
+			</line>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="0" width="132" height="20" forecolor="#000000" uuid="c2e67bdf-9d98-4e9b-9a71-f5ee2f3ede5a"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[agenda_descricao]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="0" width="338" height="18" uuid="48d3e907-b205-4ecd-8615-604c9cb73c77"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agenda_descricao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="20" width="132" height="20" forecolor="#000000" uuid="67ce6143-de8b-4841-84ca-f33b75bef635"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[agenda_status]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="20" width="338" height="18" uuid="117975ea-0b6c-4683-8c39-7b77fb0b2ae8"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agenda_status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="01566680-9217-4831-9b2b-ca523df2c407"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="368374d3-9186-4dc7-8852-0a28c1abb2dd"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="-1" width="40" height="13" forecolor="#FFFFFF" uuid="a81c5496-eac6-4a3e-9d67-a7e75cd3a114"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="-1" width="80" height="13" forecolor="#FFFFFF" uuid="01783e5d-df5a-484b-b594-781d27c366c8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="6d41b41a-55af-4122-a26e-e714f472a4ec"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

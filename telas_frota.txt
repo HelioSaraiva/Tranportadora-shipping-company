@@ -1,0 +1,13 @@
+cod_forta
+fr_tpveiculo
+fr_marca
+fr_combustivel
+fr_local
+fr_uf
+fr_placa
+fr_cor
+fr_kmini
+fr_renavan
+fr_dtlinc
+fr_chassi
+

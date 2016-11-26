@@ -1,0 +1,14 @@
+Tabela Clientes.
+
+1 Cli_CNPJ
+2 Cli_RzSocial
+3 Cli_End
+4 Cli_Num
+5 Cli_Bairro
+6 Cli_Cidade
+7 Cli_UF
+8 Cli_CEP
+9 Cli_TelCom
+10 Cli_TelCel
+
+

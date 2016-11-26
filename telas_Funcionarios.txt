@@ -1,0 +1,14 @@
+Func_CPF
+Func_Nome
+Func_End
+Func_numero
+Func_Bairro
+Func_Cidade
+Func_Uf
+Func_CEP
+Func_TelResid
+Func_TelCel
+Func_CNH
+cod_func
+Func_Cargo
+
